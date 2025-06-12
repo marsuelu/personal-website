@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
 @import url('./normalize.css');
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -10,6 +10,10 @@
   font-family: 'balonku';
   src: url('/src/assets/font/balonkuRegular-la1w.otf') format('opentype');
 }
+
+/* @text-shadow {
+  --title-shadow: 0.03em 0.02em 0 var(--color-peach), 0.06em 0.04em 0px var(--color-raspberry);
+} */
 
 @theme {
   /* custom-font-family */
@@ -21,8 +25,75 @@
   --color-peach: #ffb578;
   --color-persimmon: #e65447;
   --color-raspberry: #cf5376;
-  /* custom-text-shadow */
   --title-shadow: 0.03em 0.02em 0 var(--color-peach), 0.06em 0.04em 0px var(--color-raspberry);
+  --title-shadow-dark:
+    0.03em 0.02em 0 var(--color-gray-900), 0.06em 0.04em 0px var(--color-raspberry);
+  --text-shadow-neon-raspberry:
+    0 0 2px #fff, 0 0 8px #cf5376, 0 0 16px #cf5376, 0 0 32px #ff2ec6, 0 0 64px #ff2ec6;
+  --animate-neon-raspberry-flicker: neon-raspberry-flicker 5s linear infinite;
+  --animate-squish-three-times: squish-effect 3s ease-in-out 1;
+}
+@keyframes squish-effect {
+  5% {
+    transform: scale(1.2, 0.9);
+  }
+  10% {
+    transform: scale(0.9, 1.2) translate(0, -4px);
+  }
+  15% {
+    transform: scale(1);
+  }
+}
+
+@keyframes neon-raspberry-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 8px #cf5376,
+      0 0 16px #cf5376,
+      0 0 32px #ff2ec6,
+      0 0 64px #ff2ec6;
+  }
+  8% {
+    opacity: 0.8;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 8px #cf5376,
+      0 0 24px #cf5376,
+      0 0 48px #ff2ec6,
+      0 0 96px #ff2ec6;
+  }
+  10%,
+  20% {
+    opacity: 0.6;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #cf5376,
+      0 0 8px #cf5376,
+      0 0 16px #ff2ec6,
+      0 0 32px #ff2ec6;
+  }
+  18% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  30%,
+  70% {
+    opacity: 0.9;
+  }
+  72% {
+    opacity: 0.6;
+  }
+  77% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 1;
+  }
 }
 
 @theme inline {
