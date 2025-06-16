@@ -1,0 +1,13 @@
+diff --git a/node_modules/fireworks-js/dist/index.es.js b/node_modules/fireworks-js/dist/index.es.js
+index 9d4a3eb..4d7cb30 100644
+--- a/node_modules/fireworks-js/dist/index.es.js
++++ b/node_modules/fireworks-js/dist/index.es.js
+@@ -398,7 +398,7 @@ class T {
+     this.updateOptions({ boundaries: t });
+   }
+   createCanvas(t) {
+-    t instanceof HTMLCanvasElement ? (t.isConnected || document.body.append(t), this.canvas = t) : (this.canvas = document.createElement("canvas"), this.container.append(this.canvas)), this.ctx = this.canvas.getContext("2d"), this.updateSize();
++    t instanceof HTMLCanvasElement ? (t.isConnected || document.body.append(t), this.canvas = t) : (this.canvas = document.createElement("canvas"), this.canvas.style.position='absolute', this.container.append(this.canvas)), this.ctx = this.canvas.getContext("2d"), this.updateSize();
+   }
+   render() {
+     if (!this.ctx || !this.running) return;

@@ -8,7 +8,7 @@ const ThemeToggler: FC = () => {
 
   return (
     <button
-      className="w-8 h-8 cursor-pointer fixed top-10 right-30 text-gray-50/30"
+      className="w-8 h-8 cursor-pointer fixed top-10 right-30 text-gray-50/30 z-1000"
       onClick={() => setGlobalTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle Theme"
     >

@@ -19,7 +19,12 @@ const LanguageSelector: FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <LanguageIcon className="w-8 h-8 cursor-pointer fixed top-10 right-10 text-gray-50/30" />
+        <button
+          className="w-8 h-8 cursor-pointer fixed top-10 right-10 text-gray-50/30 z-1000"
+          aria-label="Change Language"
+        >
+          <LanguageIcon />
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-30">
         <DropdownMenuRadioGroup value={curr} onValueChange={changeLanguage}>
