@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
-const getTimeTheme = () => {
-  const hour = new Date().getHours();
-  return hour >= 19 || hour < 7 ? 'dark' : 'light';
+const getMediaTheme = () => {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || '');
+  const lastMediaTheme = useRef<string>(getMediaTheme());
 
   const setGlobalTheme = (newTheme: string) => {
     setTheme(newTheme);
@@ -17,14 +17,17 @@ export const useTheme = () => {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
-    const mediaTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const mediaTheme = getMediaTheme();
     setGlobalTheme(savedTheme || mediaTheme);
-
-    // Check time every 15 minutes and update theme
+    // Check time every 15 minutes and update theme;
+    // automatically switch to media theme once  it changes;
     const interval = setInterval(
       () => {
-        if (!localStorage.getItem('theme')) {
-          setGlobalTheme(getTimeTheme());
+        if (lastMediaTheme.current !== mediaTheme) {
+          lastMediaTheme.current = mediaTheme;
+          if (theme !== mediaTheme) {
+            setGlobalTheme(mediaTheme);
+          }
         }
       },
       15 * 60 * 1000
