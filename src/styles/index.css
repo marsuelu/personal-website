@@ -7,8 +7,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: 'balonku';
-  src: url('/src/assets/font/balonkuRegular-la1w.otf') format('opentype');
+  font-family: balonku;
+  src:
+    url('/font/BalonkuRegular-la1w.woff') format('woff'),
+    url('/font/BalonkuRegular-la1w.otf') format('opentype'),
+    url('/font/BalonkuRegular-la1w.ttf') format('truetype');
+  font-weight: normal;
 }
 
 /* @text-shadow {
@@ -18,7 +22,7 @@
 @theme {
   /* custom-font-family */
   --font-rubik: 'Rubik Puddles';
-  --font-balonku: 'balonku';
+  --font-balonku: 'balonku', 'arial', 'sans-serif', 'arial black', 'times new roman';
   --font-ZCOOL: 'ZCOOL_KuaiLe', '微软雅黑', 'sans-serif';
   /* custom-color */
   --color-coral: #ff8559;
