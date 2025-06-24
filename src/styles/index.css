@@ -13,6 +13,7 @@
     url('/font/BalonkuRegular-la1w.otf') format('opentype'),
     url('/font/BalonkuRegular-la1w.ttf') format('truetype');
   font-weight: normal;
+  font-display: block;
 }
 
 /* @text-shadow {
