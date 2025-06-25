@@ -1,12 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 
-const getMediaTheme = () => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
 export const useTheme = () => {
   const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || '');
-  const lastMediaTheme = useRef<string>(getMediaTheme());
 
   const setGlobalTheme = (newTheme: string) => {
     setTheme(newTheme);
@@ -16,24 +11,19 @@ export const useTheme = () => {
   };
 
   useEffect(() => {
+    // Initialize theme based on localStorage or media query
     const savedTheme = localStorage.getItem('theme');
-    const mediaTheme = getMediaTheme();
+    const mediaTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     setGlobalTheme(savedTheme || mediaTheme);
-    // Check time every 15 minutes and update theme;
-    // automatically switch to media theme once  it changes;
-    const interval = setInterval(
-      () => {
-        const currentMediaTheme = getMediaTheme();
-        if (lastMediaTheme.current !== currentMediaTheme) {
-          lastMediaTheme.current = currentMediaTheme;
-          if (theme !== currentMediaTheme) {
-            setGlobalTheme(currentMediaTheme);
-          }
-        }
-      },
-      15 * 60 * 1000
-    );
-    return () => clearInterval(interval);
+    // Listen for changes in the system theme preference
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e: MediaQueryListEvent) => {
+      setGlobalTheme(e.matches ? 'dark' : 'light');
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
   }, []);
 
   return { theme, setGlobalTheme };
