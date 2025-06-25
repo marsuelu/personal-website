@@ -23,10 +23,11 @@ export const useTheme = () => {
     // automatically switch to media theme once  it changes;
     const interval = setInterval(
       () => {
-        if (lastMediaTheme.current !== mediaTheme) {
-          lastMediaTheme.current = mediaTheme;
-          if (theme !== mediaTheme) {
-            setGlobalTheme(mediaTheme);
+        const currentMediaTheme = getMediaTheme();
+        if (lastMediaTheme.current !== currentMediaTheme) {
+          lastMediaTheme.current = currentMediaTheme;
+          if (theme !== currentMediaTheme) {
+            setGlobalTheme(currentMediaTheme);
           }
         }
       },
