@@ -3,10 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { confettiSchoolPride, confettiOnClick } from '@/lib/confetti';
 import { ThemeContext } from '@/context/ThemeContext';
 import { Fireworks } from 'fireworks-js';
+import StarButton from '@/components/StarButton';
 
 const cssLngConfig: Record<string, string> = {
-  en: 'font-[balonku] text-shadow-lg dark:text-shadow-(--text-shadow-neon-raspberry) dark:animate-(--animate-neon-raspberry-flicker) dark:text-[#edb3dd] ',
-  zh: 'font-[ZCOOL_KuaiLe] text-shadow-(--title-shadow) animate-(--animate-squish-three-times) dark:text-shadow-(--title-shadow-dark)',
+  en: `font-[balonku] text-shadow-lg dark:text-shadow-(--text-shadow-neon-raspberry) 
+  dark:animate-(--animate-neon-raspberry-flicker) dark:text-[#edb3dd]`,
+  zh: `font-[ZCOOL_KuaiLe] text-shadow-(--title-shadow) animate-(--animate-squish-three-times) 
+  dark:text-shadow-(--title-shadow-dark)`,
 };
 
 export const Welcome: FC = () => {
@@ -107,14 +110,29 @@ export const Welcome: FC = () => {
 
   return (
     <div
-      className="flex flex-col items-center justify-center h-screen bg-peach  select-none dark:bg-gray-900 transition-colors duration-500 relative"
+      className={`flex flex-col items-center justify-center h-screen min-w-fit
+        bg-peach  select-none dark:bg-gray-900 transition-colors 
+        duration-500`}
       id="welcome-page"
     >
       <h1
-        className={`relative z-10 text-9xl text-raspberry transition-all duration-500 ${cssLngConfig[i18n.language] || cssLngConfig.en} `}
+        className={`relative z-10 text-9xl text-raspberry transition-all 
+          duration-500 animate-(--animate-fade-in) pb-10
+          ${cssLngConfig[i18n.language] || cssLngConfig.en}`}
       >
         {t('greeting')}
       </h1>
+      <StarButton
+        onClick={() => {
+          console.log('click');
+        }}
+        color={theme === 'light' ? '#fcc419' : '#cf5376'}
+        shadow={theme === 'light' ? '#f08c00' : '#cf5376'}
+        glare="hsl(0 0% 100% / 0.75)"
+        fontSize="3rem"
+        transition="0.2s"
+        text={t('enter')}
+      />
     </div>
   );
 };
