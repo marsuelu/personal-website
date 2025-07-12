@@ -3,7 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { confettiSchoolPride, confettiOnClick } from '@/lib/confetti';
 import { ThemeContext } from '@/context/ThemeContext';
 import { Fireworks } from 'fireworks-js';
+import { clsx } from 'clsx';
 import StarButton from '@/components/StarButton';
+import ThemeToggler from '@/components/Theme';
+import LanguageSelector from '@/components/Language';
+import { useNavigate } from 'react-router';
 
 const cssLngConfig: Record<string, string> = {
   en: `font-[balonku] text-shadow-lg dark:text-shadow-(--text-shadow-neon-raspberry) 
@@ -17,6 +21,7 @@ export const Welcome: FC = () => {
   const { theme } = use(ThemeContext);
   const fireworks = useRef<any | null>(null);
   const fireworkTimeoutId = useRef<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
 
   const cancelFirework = () => {
     if (fireworks.current) {
@@ -110,21 +115,41 @@ export const Welcome: FC = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center h-screen min-w-fit
-        bg-peach  select-none dark:bg-gray-900 transition-colors 
-        duration-500`}
+      className={clsx(
+        'flex',
+        'flex-col',
+        'items-center',
+        'justify-center',
+        'h-screen',
+        'min-w-fit',
+        'bg-peach',
+        'select-none',
+        'dark:bg-gray-900',
+        'transition-colors',
+        'duration-500'
+      )}
       id="welcome-page"
     >
+      <ThemeToggler />
+      <LanguageSelector />
       <h1
-        className={`relative z-10 text-9xl text-raspberry transition-all 
-          duration-500 animate-(--animate-fade-in) pb-10
-          ${cssLngConfig[i18n.language] || cssLngConfig.en}`}
+        className={clsx(
+          'relative',
+          'z-10',
+          'text-9xl',
+          'text-raspberry',
+          'transition-all',
+          'duration-500',
+          'animate-(--animate-fade-in)',
+          'pb-10',
+          cssLngConfig[i18n.language] || cssLngConfig.en
+        )}
       >
         {t('greeting')}
       </h1>
       <StarButton
         onClick={() => {
-          console.log('click');
+          navigate('/home');
         }}
         color={theme === 'light' ? '#fcc419' : '#cf5376'}
         shadow={theme === 'light' ? '#f08c00' : '#cf5376'}
@@ -136,3 +161,5 @@ export const Welcome: FC = () => {
     </div>
   );
 };
+
+export default Welcome;

@@ -2,6 +2,7 @@
 import StarIcon from '@/assets/icons/star_icon.svg?react';
 import { type FC } from 'react';
 import './index.css';
+import clsx from 'clsx';
 
 interface StarButtonProps {
   onClick: () => void;
@@ -32,8 +33,19 @@ const StarButton: FC<StarButtonProps> = ({
 
   return (
     <div
-      className={`star-button cursor-pointer relative flex box-border px-5 py-1  transition-colors 
-    duration-200 hover:dark:bg-gray-700 hover:bg-white/5`}
+      className={clsx(
+        'star-button',
+        'cursor-pointer',
+        'relative',
+        'flex',
+        'box-border',
+        'px-5',
+        'py-1',
+        'transition-colors',
+        'duration-200',
+        'hover:dark:bg-gray-700',
+        'hover:bg-white/5'
+      )}
       style={
         {
           '--color': color,

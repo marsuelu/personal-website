@@ -1,14 +1,11 @@
-import { Welcome } from './pages/welcome/index.tsx';
-import LanguageSelector from './components/Language';
-import ThemeToggler from './components/Theme';
 import { ThemeProvider } from './context/ThemeContext.tsx';
+import { RouterProvider } from 'react-router';
+import router from './routes/router';
 
 function App() {
   return (
     <ThemeProvider>
-      <ThemeToggler />
-      <LanguageSelector />
-      <Welcome />
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
