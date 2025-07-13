@@ -2,5 +2,12 @@
   "lngBrief": "zh",
   "name": "中文",
   "greeting": "你来啦！",
-  "enter": "请进->"
+  "enter": "请进->",
+  "home": "yan wen zi",
+  "about": "关于",
+  "contact": "联系",
+  "services": "服务",
+  "products": "产品",
+  "blog": "博客",
+  "login": "登录"
 }

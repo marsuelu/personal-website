@@ -120,6 +120,7 @@ export const Welcome: FC = () => {
         'flex-col',
         'items-center',
         'justify-center',
+        'relative',
         'h-screen',
         'min-w-fit',
         'bg-peach',
@@ -130,13 +131,29 @@ export const Welcome: FC = () => {
       )}
       id="welcome-page"
     >
-      <ThemeToggler />
-      <LanguageSelector />
+      <div
+        className={clsx(
+          'container',
+          'flex',
+          'items-center',
+          'justify-end',
+          'gap-4',
+          'absolute',
+          'top-0',
+          'm-auto',
+          'pt-6',
+          'z-100'
+        )}
+      >
+        <ThemeToggler className="text-gray-50/30" />
+        <LanguageSelector className="text-gray-50/30" />
+      </div>
       <h1
         className={clsx(
           'relative',
           'z-10',
-          'text-9xl',
+          'text-6xl',
+          'sm:text-9xl',
           'text-raspberry',
           'transition-all',
           'duration-500',
@@ -154,7 +171,6 @@ export const Welcome: FC = () => {
         color={theme === 'light' ? '#fcc419' : '#cf5376'}
         shadow={theme === 'light' ? '#f08c00' : '#cf5376'}
         glare="hsl(0 0% 100% / 0.75)"
-        fontSize="3rem"
         transition="0.2s"
         text={t('enter')}
       />

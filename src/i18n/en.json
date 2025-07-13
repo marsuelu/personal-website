@@ -2,5 +2,13 @@
   "lngBrief": "en",
   "name": "English",
   "greeting": "Hi there!",
-  "enter": "Explore->"
+  "enter": "Explore->",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "services": "Services",
+  "products": "Products",
+  "blog": "Blog",
+  "login": "Login",
+  "register": "Register"
 }

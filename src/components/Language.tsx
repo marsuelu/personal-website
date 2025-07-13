@@ -8,8 +8,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 import LanguageIcon from '@/assets/icons/language_icon.svg?react';
 import { useTranslation } from 'react-i18next';
+import { type CSSProperties } from 'react';
 
-const LanguageSelector: FC = () => {
+interface LanguageSelectorProps {
+  styles?: CSSProperties;
+  className?: string;
+}
+
+const LanguageSelector: FC<LanguageSelectorProps> = ({ styles, className }) => {
   const { i18n } = useTranslation();
   const [curr, setCurr] = useState(i18n.language);
   const changeLanguage = (lang: string) => {
@@ -19,14 +25,13 @@ const LanguageSelector: FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button
-          className="w-8 h-8 cursor-pointer fixed top-10 right-10 text-gray-50/30 z-1000"
+        <LanguageIcon
+          className={`w-6 h-6 cursor-pointer relative ${className}`}
           aria-label="Change Language"
-        >
-          <LanguageIcon />
-        </button>
+          style={styles}
+        />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-30">
+      <DropdownMenuContent className="min-w-8rem mt-4" sideOffset={0}>
         <DropdownMenuRadioGroup value={curr} onValueChange={changeLanguage}>
           {Object.entries(i18n.services.resourceStore.data).map(([langKey, langObj]) => (
             <DropdownMenuRadioItem key={langKey} value={langKey}>

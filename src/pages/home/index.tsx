@@ -4,6 +4,9 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import LanguageSelector from '@/components/Language';
+import ThemeToggler from '@/components/Theme';
+
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const Home: FC = () => {
@@ -48,19 +51,14 @@ const Home: FC = () => {
         ref={headerRef}
         className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-200"
       >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-gray-800">My Website</h1>
-              <span className="text-sm text-gray-600">Theme: {theme}</span>
+        <div className="container px-4 py-4 m-auto">
+          <div className="flex items-center justify-end sm:justify-between">
+            <div className="hidden items-center space-x-4 sm:flex">
+              <h1 className="text-2xl font-bold text-gray-800">（*´▽｀*）</h1>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                Get Started
-              </button>
-              <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">
-                Learn More
-              </button>
+              <ThemeToggler className="text-gray-800" />
+              <LanguageSelector className="text-gray-800" />
             </div>
           </div>
         </div>
@@ -68,28 +66,34 @@ const Home: FC = () => {
       <div id="smooth-wrapper">
         {/* Content with padding to account for fixed header */}
         <div id="smooth-content" className="pt-24 bg-fuchsia-600">
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
-          <h1 className="text-9xl">{theme}</h1>
+          <h1 className="text-9xl">{theme}1</h1>
+          <h1 className="text-9xl">{theme}2</h1>
+          <h1 className="text-9xl">{theme}3</h1>
+          <h1 className="text-9xl">{theme}4</h1>
+          <h1 className="text-9xl">{theme}5</h1>
+          <h1 className="text-9xl">{theme}6</h1>
+          <h1 className="text-9xl">{theme}7</h1>
+          <h1 className="text-9xl">{theme}8</h1>
+          <h1 className="text-9xl">{theme}9</h1>
+          <h1 className="text-9xl">{theme}10</h1>
+          <h1 className="text-9xl">{theme}11</h1>
+          <h1 className="text-9xl">{theme}12</h1>
+          <h1 className="text-9xl">{theme}13</h1>
+          <h1 className="text-9xl">{theme}14</h1>
+          <h1 className="text-9xl">{theme}15</h1>
+          <h1 className="text-9xl">{theme}16</h1>
+          <h1 className="text-9xl">{theme}17</h1>
+          <h1 className="text-9xl">{theme}18</h1>
+          <h1 className="text-9xl">{theme}19</h1>
+          <h1 className="text-9xl">{theme}20</h1>
+          <h1 className="text-9xl">{theme}21</h1>
+          <h1 className="text-9xl">{theme}22</h1>
+          <h1 className="text-9xl">{theme}23</h1>
+          <h1 className="text-9xl">{theme}24</h1>
+          <h1 className="text-9xl">{theme}25</h1>
+          <h1 className="text-9xl">{theme}26</h1>
+          <h1 className="text-9xl">{theme}27</h1>
+          <h1 className="text-9xl">{theme}28</h1>
         </div>
       </div>
     </>

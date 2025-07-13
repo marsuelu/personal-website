@@ -5,9 +5,17 @@
   --transition: 0.2s;
   --hover: 0.4;
   --pos: 0;
+  --font-size: 1rem;
   border-radius: calc(var(--font-size) * 0.1);
   transition: all 0.5s linear;
 }
+
+@media (min-width: 640px) {
+  .star-button {
+    --font-size: 3rem;
+  }
+}
+
 .star-button:hover span:last-of-type {
   transition:
     transform 0.2s,

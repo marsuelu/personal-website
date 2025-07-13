@@ -10,7 +10,7 @@ interface StarButtonProps {
   color: string;
   shadow: string;
   glare: string;
-  fontSize: string;
+  fontSize?: string;
   transition: string;
 }
 
