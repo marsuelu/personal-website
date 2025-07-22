@@ -145,8 +145,8 @@ export const Welcome: FC = () => {
           'z-100'
         )}
       >
-        <ThemeToggler className="text-gray-50/30" />
-        <LanguageSelector className="text-gray-50/30" />
+        <ThemeToggler className="text-slate-600" />
+        <LanguageSelector className="text-slate-600" />
       </div>
       <h1
         className={clsx(

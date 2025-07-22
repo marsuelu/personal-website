@@ -9,5 +9,12 @@
   "services": "服务",
   "products": "产品",
   "blog": "博客",
-  "login": "登录"
+  "login": "登录",
+  "chooseTab": "选择标签页",
+  "setLanguage": "选择语言",
+  "theme": "主题",
+  "menu": "菜单",
+  "resume": "简历",
+  "travel": "旅行",
+  "manicure": "美甲"
 }

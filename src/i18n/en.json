@@ -10,5 +10,12 @@
   "products": "Products",
   "blog": "Blog",
   "login": "Login",
-  "register": "Register"
+  "register": "Register",
+  "chooseTab": "Tab",
+  "setLanguage": "Language",
+  "theme": "theme",
+  "menu": "Menu",
+  "resume": "resume",
+  "travel": "travel",
+  "manicure": "manicure"
 }

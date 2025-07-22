@@ -1,7 +1,6 @@
-import LightModeIcon from '@/assets/icons/light_mode_icon.svg?react';
-import DarkModeIcon from '@/assets/icons/dark_mode_icon.svg?react';
 import { type FC, use, type CSSProperties } from 'react';
 import { ThemeContext } from '@/context/ThemeContext';
+import { Sun as SunIcon, Moon as MoonIcon } from 'lucide-react';
 
 interface ThemeTogglerProps {
   styles?: CSSProperties;
@@ -18,7 +17,7 @@ const ThemeToggler: FC<ThemeTogglerProps> = ({ styles, className }) => {
       aria-label="Toggle Theme"
       style={styles}
     >
-      {theme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 };

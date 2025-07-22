@@ -1,14 +1,14 @@
-import { type FC, useState } from 'react';
+import { type FC } from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import LanguageIcon from '@/assets/icons/language_icon.svg?react';
-import { useTranslation } from 'react-i18next';
+// import LanguageIcon from '@/assets/icons/language_icon.svg?react';
+import { Earth as EarthIcon } from 'lucide-react';
+
 import { type CSSProperties } from 'react';
+import LanguageRadioGroup from './LangRadioGroup';
 
 interface LanguageSelectorProps {
   styles?: CSSProperties;
@@ -16,29 +16,17 @@ interface LanguageSelectorProps {
 }
 
 const LanguageSelector: FC<LanguageSelectorProps> = ({ styles, className }) => {
-  const { i18n } = useTranslation();
-  const [curr, setCurr] = useState(i18n.language);
-  const changeLanguage = (lang: string) => {
-    setCurr(lang);
-    i18n.changeLanguage(lang);
-  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <LanguageIcon
+        <EarthIcon
           className={`w-6 h-6 cursor-pointer relative ${className}`}
           aria-label="Change Language"
           style={styles}
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-8rem mt-4" sideOffset={0}>
-        <DropdownMenuRadioGroup value={curr} onValueChange={changeLanguage}>
-          {Object.entries(i18n.services.resourceStore.data).map(([langKey, langObj]) => (
-            <DropdownMenuRadioItem key={langKey} value={langKey}>
-              {(langObj as { translation?: { name?: string } })?.translation?.name || langKey}
-            </DropdownMenuRadioItem>
-          ))}
-        </DropdownMenuRadioGroup>
+        <LanguageRadioGroup />
       </DropdownMenuContent>
     </DropdownMenu>
   );

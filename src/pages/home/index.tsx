@@ -1,17 +1,25 @@
-import { type FC, use, useRef } from 'react';
-import { ThemeContext } from '@/context/ThemeContext';
+import { type FC, useState, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import LanguageSelector from '@/components/Language';
 import ThemeToggler from '@/components/Theme';
+import Menu from './header/Menu.tsx';
+import { Outlet } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+const tabConfig = ['resume', 'travel', 'manicure'];
+
 const Home: FC = () => {
-  const { theme } = use(ThemeContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
   const headerRef = useRef<HTMLDivElement>(null);
+  const [currentTab, setCurrentTab] = useState(location.pathname.replace('/home/', '') || 'resume');
 
   useGSAP(() => {
     // page scroll
@@ -56,7 +64,30 @@ const Home: FC = () => {
             <div className="hidden items-center space-x-4 sm:flex">
               <h1 className="text-2xl font-bold text-gray-800">（*´▽｀*）</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <Menu className="sm:hidden" />
+            <div className="hidden sm:flex items-center space-x-4">
+              <nav className="flex justify-start text-gray-800 gap-4 mr-10">
+                {tabConfig.map((v, i) => (
+                  <div
+                    className={`
+                      relative cursor-pointer max-w-xs text-ellipsis overflow-hidden text-xl/relaxed
+                      after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
+                      after:bg-gray-800 after:transition-transform after:duration-300 after:origin-left
+                      ${
+                        i === tabConfig.findIndex((a) => a === currentTab)
+                          ? 'after:scale-x-100'
+                          : 'after:scale-x-0 hover:after:scale-x-100'
+                      }
+                    `}
+                    onClick={(e) => {
+                      navigate(`/home/${v}`);
+                      setCurrentTab(v);
+                    }}
+                  >
+                    {t(v)}
+                  </div>
+                ))}
+              </nav>
               <ThemeToggler className="text-gray-800" />
               <LanguageSelector className="text-gray-800" />
             </div>
@@ -65,35 +96,8 @@ const Home: FC = () => {
       </header>
       <div id="smooth-wrapper">
         {/* Content with padding to account for fixed header */}
-        <div id="smooth-content" className="pt-24 bg-fuchsia-600">
-          <h1 className="text-9xl">{theme}1</h1>
-          <h1 className="text-9xl">{theme}2</h1>
-          <h1 className="text-9xl">{theme}3</h1>
-          <h1 className="text-9xl">{theme}4</h1>
-          <h1 className="text-9xl">{theme}5</h1>
-          <h1 className="text-9xl">{theme}6</h1>
-          <h1 className="text-9xl">{theme}7</h1>
-          <h1 className="text-9xl">{theme}8</h1>
-          <h1 className="text-9xl">{theme}9</h1>
-          <h1 className="text-9xl">{theme}10</h1>
-          <h1 className="text-9xl">{theme}11</h1>
-          <h1 className="text-9xl">{theme}12</h1>
-          <h1 className="text-9xl">{theme}13</h1>
-          <h1 className="text-9xl">{theme}14</h1>
-          <h1 className="text-9xl">{theme}15</h1>
-          <h1 className="text-9xl">{theme}16</h1>
-          <h1 className="text-9xl">{theme}17</h1>
-          <h1 className="text-9xl">{theme}18</h1>
-          <h1 className="text-9xl">{theme}19</h1>
-          <h1 className="text-9xl">{theme}20</h1>
-          <h1 className="text-9xl">{theme}21</h1>
-          <h1 className="text-9xl">{theme}22</h1>
-          <h1 className="text-9xl">{theme}23</h1>
-          <h1 className="text-9xl">{theme}24</h1>
-          <h1 className="text-9xl">{theme}25</h1>
-          <h1 className="text-9xl">{theme}26</h1>
-          <h1 className="text-9xl">{theme}27</h1>
-          <h1 className="text-9xl">{theme}28</h1>
+        <div id="smooth-content">
+          <Outlet />
         </div>
       </div>
     </>
