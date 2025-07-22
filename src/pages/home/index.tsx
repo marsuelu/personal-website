@@ -9,6 +9,8 @@ import Menu from './header/Menu.tsx';
 import { Outlet } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { Dot as DotIcon } from 'lucide-react';
+import { twMerge } from 'tailwind-merge';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
@@ -66,25 +68,27 @@ const Home: FC = () => {
             </div>
             <Menu className="sm:hidden" />
             <div className="hidden sm:flex items-center space-x-4">
-              <nav className="flex justify-start text-gray-800 gap-4 mr-10">
+              <nav className="flex justify-start  gap-4 mr-10">
                 {tabConfig.map((v, i) => (
                   <div
-                    className={`
-                      relative cursor-pointer max-w-xs text-ellipsis overflow-hidden text-xl/relaxed
-                      after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full 
-                      after:bg-gray-800 after:transition-transform after:duration-300 after:origin-left
-                      ${
-                        i === tabConfig.findIndex((a) => a === currentTab)
-                          ? 'after:scale-x-100'
-                          : 'after:scale-x-0 hover:after:scale-x-100'
-                      }
-                    `}
+                    className={twMerge(
+                      `
+                        group relative cursor-pointer max-w-xs text-ellipsis overflow-hidden text-xl/relaxed text-gray-800
+                        duration-300 px-4 [&.active>span]:text-fuchsia-600 
+                      `,
+                      i === tabConfig.findIndex((a) => a === currentTab) ? 'active' : ''
+                    )}
                     onClick={(e) => {
                       navigate(`/home/${v}`);
                       setCurrentTab(v);
                     }}
                   >
-                    {t(v)}
+                    <DotIcon
+                      size={20}
+                      strokeWidth={8}
+                      className="absolute -left-1 top-2 text-fuchsia-600 hidden group-hover:inline-block"
+                    />
+                    <span>{t(v)}</span>
                   </div>
                 ))}
               </nav>
