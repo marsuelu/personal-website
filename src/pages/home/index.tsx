@@ -78,7 +78,7 @@ const Home: FC = () => {
                       `,
                       i === tabConfig.findIndex((a) => a === currentTab) ? 'active' : ''
                     )}
-                    onClick={(e) => {
+                    onClick={() => {
                       navigate(`/home/${v}`);
                       setCurrentTab(v);
                     }}

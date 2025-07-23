@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://marsuelu.github.io/personal-website",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "vite preview --port 3600",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -19,6 +22,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fireworks-js": "^2.10.8",
+    "gh-pages": "^6.3.0",
     "gsap": "^3.13.0",
     "i18next": "^25.2.0",
     "i18next-browser-languagedetector": "^8.1.0",
