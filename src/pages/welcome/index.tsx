@@ -60,8 +60,8 @@ export const Welcome: FC = () => {
             max: 360,
           },
           delay: {
-            min: 30,
-            max: 60,
+            min: 50,
+            max: 100,
           },
           rocketsPoint: {
             min: 50,

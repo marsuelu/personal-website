@@ -7,10 +7,7 @@
 
 @font-face {
   font-family: balonku;
-  src:
-    url('/font/BalonkuRegular-la1w.woff') format('woff'),
-    url('/font/BalonkuRegular-la1w.otf') format('opentype'),
-    url('/font/BalonkuRegular-la1w.ttf') format('truetype');
+  src: url('/font/BalonkuRegular-la1w.woff2') format('woff2');
   font-weight: normal;
   font-display: block;
 }

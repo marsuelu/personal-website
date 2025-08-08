@@ -23,37 +23,40 @@ const Home: FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
   const [currentTab, setCurrentTab] = useState(location.pathname.replace('/home/', '') || 'resume');
 
-  useGSAP(() => {
-    // page scroll
-    ScrollSmoother.create({
-      smooth: 1,
-      effects: true,
-      smoothTouch: 0.1,
-    });
-    // header show/hide
-    const header = headerRef.current;
-    if (!header) return;
-    const headerH = header.clientHeight;
-    const headerAnimation = gsap
-      .from(header, {
-        yPercent: -100,
-        duration: 0.3,
-        ease: 'power2.inOut',
-      })
-      .progress(1);
-    ScrollTrigger.create({
-      trigger: '#smooth-content',
-      start: 'top top',
-      end: 'bottom bottom',
-      onUpdate: (self) => {
-        if (self.direction === -1 || self.scroll() < headerH) {
-          headerAnimation.play();
-        } else {
-          headerAnimation.reverse();
-        }
-      },
-    });
-  }, []);
+  useGSAP(
+    () => {
+      // page scroll
+      ScrollSmoother.create({
+        smooth: 1,
+        effects: true,
+        smoothTouch: 0.1,
+      });
+      // header show/hide
+      const header = headerRef.current;
+      if (!header) return;
+      const headerH = header.clientHeight;
+      const headerAnimation = gsap
+        .from(header, {
+          yPercent: -100,
+          duration: 0.3,
+          ease: 'power2.inOut',
+        })
+        .progress(1);
+      ScrollTrigger.create({
+        trigger: '#smooth-content',
+        start: 'top top',
+        end: 'bottom bottom',
+        onUpdate: (self) => {
+          if (self.direction === -1 || self.scroll() < headerH) {
+            headerAnimation.play();
+          } else {
+            headerAnimation.reverse();
+          }
+        },
+      });
+    },
+    { scope: '#root' }
+  );
 
   return (
     <>
@@ -63,12 +66,10 @@ const Home: FC = () => {
       >
         <div className="container px-4 py-4 m-auto">
           <div className="flex items-center justify-end sm:justify-between">
-            <div className="hidden items-center space-x-4 sm:flex">
-              <h1 className="text-2xl font-bold text-gray-800">（*´▽｀*）</h1>
-            </div>
+            <h1 className="hidden sm:flex text-2xl font-bold text-gray-800">WTF</h1>
             <Menu className="sm:hidden" />
             <div className="hidden sm:flex items-center space-x-4">
-              <nav className="flex justify-start  gap-4 mr-10">
+              <div className="flex justify-start  gap-4 mr-10">
                 {tabConfig.map((v, i) => (
                   <div
                     className={twMerge(
@@ -82,6 +83,7 @@ const Home: FC = () => {
                       navigate(`/home/${v}`);
                       setCurrentTab(v);
                     }}
+                    key={i}
                   >
                     <DotIcon
                       size={20}
@@ -91,7 +93,7 @@ const Home: FC = () => {
                     <span>{t(v)}</span>
                   </div>
                 ))}
-              </nav>
+              </div>
               <ThemeToggler className="text-gray-800" />
               <LanguageSelector className="text-gray-800" />
             </div>
