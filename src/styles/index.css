@@ -26,6 +26,9 @@
   --color-peach: #ffb578;
   --color-persimmon: #e65447;
   --color-raspberry: #cf5376;
+  --color-barbie: #f636c7;
+  --color-gentle: #eea3c8;
+  --color-beige: #fef7fa;
   --title-shadow: 0.03em 0.02em 0 var(--color-peach), 0.06em 0.04em 0px var(--color-raspberry);
   --title-shadow-dark:
     0.03em 0.02em 0 var(--color-gray-900), 0.06em 0.04em 0px var(--color-raspberry);

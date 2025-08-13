@@ -17,5 +17,11 @@
   "menu": "Menu",
   "resume": "resume",
   "travel": "travel",
-  "manicure": "manicure"
+  "manicure": "manicure",
+  "intro_0": "I’m Manshu Lu",
+  "intro_1": "A front-end developer with a passion for building clean, engaging, and user-focused web experiences.",
+  "intro_2": "In 2021, I decided to switch careers. At first, I only had a spark of curiosity about web development, so I took Angela Yu’s Web Development Bootcamp on Udemy. With HTML, CSS, and JavaScript, I built my very first website and thought, “Hey, I might actually be good at this.” But reality hit — online courses alone weren’t enough. I joined a six-month in-person program, mastered jQuery, Vue, React, and Vant, and built projects ranging from admin dashboards to mini-programs to mobile apps.",
+  "intro_3": "After graduating, I worked as a contractor for a bank’s cloud services team, building internal tools with Vue2, Vue3.2, and React18. Over three years, I earned an A2 annual rating and a raise. Sounds great, right? But I was secretly anxious — my knowledge of networking fundamentals, deployment, and build processes was close to zero. When long hours started taking a toll on my health, I hit pause, resigned, and went back into learning mode.",
+  "intro_4": "At first, I was all over the place — like a headless fly trying to learn everything at once. Things only started to click when I began building my own projects. With AI as my coding sidekick, I could research, debug, and refine ideas faster. My first personal project? A clean but striking website inspired by low-code platforms like Webflow — fully designed, built, and deployed by me via GitHub Pages.",
+  "intro_5": "Today, I’m exploring the sweet spot where front-end tech meets creative design, aiming to write code with a little personality and craft websites that make people want to stick around a bit longer."
 }

@@ -62,7 +62,7 @@ const Home: FC = () => {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-200"
+        className="fixed top-0 left-0 right-0 z-50 bg-beige backdrop-blur-md shadow-lg border-b border-gray-200"
       >
         <div className="container px-4 py-4 m-auto">
           <div className="flex items-center justify-end sm:justify-between">
