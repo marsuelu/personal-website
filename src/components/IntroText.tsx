@@ -9,7 +9,7 @@ const IntroText: React.FC<IntroTextProps> = ({ className = '' }) => {
 
   // Method 1: Join with line breaks and use CSS
   const intro2Joined = t('intro_2', { returnObjects: true, joinArrays: '\n' }) as string;
-  
+
   // Method 2: Map over array and add <br /> elements
   const intro2Array = t('intro_2', { returnObjects: true }) as string[];
 
@@ -17,16 +17,14 @@ const IntroText: React.FC<IntroTextProps> = ({ className = '' }) => {
     <div className={className}>
       {/* Method 1: Using CSS white-space */}
       <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Method 1 - CSS white-space:</h3>
-        <p className="whitespace-pre-line text-gray-700 leading-relaxed">
-          {intro2Joined}
-        </p>
+        <h3 className="mb-2 text-lg font-semibold">Method 1 - CSS white-space:</h3>
+        <p className="leading-relaxed whitespace-pre-line text-gray-700">{intro2Joined}</p>
       </div>
 
       {/* Method 2: Using JSX mapping */}
       <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Method 2 - JSX mapping:</h3>
-        <p className="text-gray-700 leading-relaxed">
+        <h3 className="mb-2 text-lg font-semibold">Method 2 - JSX mapping:</h3>
+        <p className="leading-relaxed text-gray-700">
           {intro2Array.map((line, index) => (
             <span key={index}>
               {line}
@@ -38,9 +36,9 @@ const IntroText: React.FC<IntroTextProps> = ({ className = '' }) => {
 
       {/* Method 3: Separate paragraphs */}
       <div className="mb-4">
-        <h3 className="text-lg font-semibold mb-2">Method 3 - Separate paragraphs:</h3>
+        <h3 className="mb-2 text-lg font-semibold">Method 3 - Separate paragraphs:</h3>
         {intro2Array.map((line, index) => (
-          <p key={index} className="text-gray-700 leading-relaxed mb-2">
+          <p key={index} className="mb-2 leading-relaxed text-gray-700">
             {line}
           </p>
         ))}
@@ -50,4 +48,3 @@ const IntroText: React.FC<IntroTextProps> = ({ className = '' }) => {
 };
 
 export default IntroText;
-

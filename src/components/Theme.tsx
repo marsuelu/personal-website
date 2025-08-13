@@ -12,7 +12,7 @@ const ThemeToggler: FC<ThemeTogglerProps> = ({ styles, className }) => {
 
   return (
     <button
-      className={`w-8 h-8 cursor-pointer  ${className}`}
+      className={`h-8 w-8 cursor-pointer ${className}`}
       onClick={() => setGlobalTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle Theme"
       style={styles}

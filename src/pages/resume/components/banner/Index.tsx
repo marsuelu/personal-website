@@ -40,7 +40,7 @@ const Banner: FC<BannerProps> = () => {
   );
 
   return (
-    <div id="resume_banner" ref={bannerRef} className="h-svh w-svw relative overflow-hidden">
+    <div id="resume_banner" ref={bannerRef} className="relative h-svh w-svw overflow-hidden">
       <div
         id="banner_circle"
         ref={circleRef}

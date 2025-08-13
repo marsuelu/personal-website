@@ -20,7 +20,7 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({ styles, className }) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <EarthIcon
-          className={`w-6 h-6 cursor-pointer relative ${className}`}
+          className={`relative h-6 w-6 cursor-pointer ${className}`}
           aria-label="Change Language"
           style={styles}
         />

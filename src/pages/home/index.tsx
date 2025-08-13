@@ -62,21 +62,18 @@ const Home: FC = () => {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 left-0 right-0 z-50 bg-beige backdrop-blur-md shadow-lg border-b border-gray-200"
+        className="bg-beige fixed top-0 right-0 left-0 z-50 border-b border-gray-200 shadow-lg backdrop-blur-md"
       >
-        <div className="container px-4 py-4 m-auto">
+        <div className="container m-auto px-4 py-4">
           <div className="flex items-center justify-end sm:justify-between">
-            <h1 className="hidden sm:flex text-2xl font-bold text-gray-800">WTF</h1>
+            <h1 className="hidden text-2xl font-bold text-gray-800 sm:flex">WTF</h1>
             <Menu className="sm:hidden" />
-            <div className="hidden sm:flex items-center space-x-4">
-              <div className="flex justify-start  gap-4 mr-10">
+            <div className="hidden items-center space-x-4 sm:flex">
+              <div className="mr-10 flex justify-start gap-4">
                 {tabConfig.map((v, i) => (
                   <div
                     className={twMerge(
-                      `
-                        group relative cursor-pointer max-w-xs text-ellipsis overflow-hidden text-xl/relaxed text-gray-800
-                        duration-300 px-4 [&.active>span]:text-fuchsia-600 
-                      `,
+                      `group relative max-w-xs cursor-pointer overflow-hidden px-4 text-xl/relaxed text-ellipsis text-gray-800 duration-300 [&.active>span]:text-fuchsia-600`,
                       i === tabConfig.findIndex((a) => a === currentTab) ? 'active' : ''
                     )}
                     onClick={() => {
@@ -88,7 +85,7 @@ const Home: FC = () => {
                     <DotIcon
                       size={20}
                       strokeWidth={8}
-                      className="absolute -left-1 top-2 text-fuchsia-600 hidden group-hover:inline-block"
+                      className="absolute top-2 -left-1 hidden text-fuchsia-600 group-hover:inline-block"
                     />
                     <span>{t(v)}</span>
                   </div>
