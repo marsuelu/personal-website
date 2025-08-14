@@ -21,3 +21,4 @@ import{r as re}from"./router-ndYPTExO.js";function mt(o){if(o===void 0)throw new
  * Club GSAP members, the agreement issued with that membership.
  * @author: Jack Doyle, jack@greensock.com
 */let Li=typeof document<"u"?re.useLayoutEffect:re.useEffect,Ii=o=>o&&!Array.isArray(o)&&typeof o=="object",ge=[],es={},Nr=Ir;const Br=(o,t=ge)=>{let e=es;Ii(o)?(e=o,o=null,t="dependencies"in e?e.dependencies:ge):Ii(t)&&(e=t,t="dependencies"in e?e.dependencies:ge),o&&typeof o!="function"&&console.warn("First parameter must be a function or config object");const{scope:i,revertOnUpdate:r}=e,n=re.useRef(!1),s=re.useRef(Nr.context(()=>{},i)),a=re.useRef(f=>s.current.add(null,f)),u=t&&t.length&&!r;return u&&Li(()=>(n.current=!0,()=>s.current.revert()),ge),Li(()=>{if(o&&s.current.add(o,i),!u||!n.current)return()=>s.current.revert()},t),{context:s.current,contextSafe:a.current}};Br.register=o=>{Nr=o};Br.headless=!0;export{Ir as g,Br as u};
+//# sourceMappingURL=gsap-BQ1o9wuP.js.map

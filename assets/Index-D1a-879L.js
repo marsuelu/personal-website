@@ -1,1 +1,2 @@
 import{j as r}from"./index-D2kWbB0L.js";import"./router-ndYPTExO.js";import"./i18n-Dhs0AlZX.js";import"./vendor-DJG_os-6.js";const e=()=>r.jsx("div",{className:"min-h-1vh bg-fuchsia-400",children:"Manicure"});export{e as default};
+//# sourceMappingURL=Index-D1a-879L.js.map
