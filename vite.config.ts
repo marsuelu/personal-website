@@ -9,7 +9,7 @@ import { compression } from 'vite-plugin-compression2';
 // https://vite.dev/config/
 export default defineConfig({
   base: '/personal-website/',
-  plugins: [react(), tailwindcss(), svgr(), analyzer({ analyzerPort: 8687 }), compression()],
+  plugins: [react(), tailwindcss(), svgr(), analyzer({ analyzerMode: 'static' ,analyzerPort: 8687 }), compression()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

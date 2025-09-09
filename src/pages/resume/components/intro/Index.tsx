@@ -37,21 +37,22 @@ const Intro: FC = () => {
     () => {
       if (!introRef.current) return;
       // Hero section typing effect
-      SplitText.create('.text-split', {
-        type: 'chars, words',
-        autoSplit: true,
-        onSplit(self) {
-          return gsap.from(self.words, {
-            duration: 0.05,
-            opacity: 0,
-            autoAlpha: 0,
-            stagger: 0.01,
-            scrollTrigger: {
-              trigger: '.text-split',
-              start: 'top 80%',
-            },
-          });
-        },
+      document.fonts.ready.then(() => {
+        SplitText.create('.text-split', {
+          type: 'chars',
+          autoSplit: true,
+          onSplit(self) {
+            return gsap.from(self.chars, {
+              duration: 0.05,
+              opacity: 0,
+              stagger: 0.02,
+              scrollTrigger: {
+                trigger: '.text-split',
+                start: 'top 50%',
+              },
+            });
+          },
+        });
       });
       // other sections rise to show effect
       const showRises = introRef.current.querySelectorAll('.show-rise');
@@ -79,12 +80,12 @@ const Intro: FC = () => {
   return (
     <div id="resume_intro" ref={introRef} className="bg-beige min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32">
+      <section className="text-split container mx-auto px-4 py-20 md:py-32">
         <div className="relative mb-16 text-center">
-          <h1 className="text-barbie text-split relative mb-6 text-5xl font-extrabold md:text-7xl">
+          <h1 className="text-barbie relative mb-6 text-5xl font-extrabold md:text-7xl">
             {t('intro_0')}
           </h1>
-          <p className="text-gentle text-split mx-auto max-w-3xl text-lg font-semibold md:text-2xl">
+          <p className="text-gentle mx-auto max-w-3xl text-lg font-semibold md:text-2xl">
             {t('intro_1')}
           </p>
         </div>

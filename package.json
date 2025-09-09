@@ -25,6 +25,7 @@
     "gsap": "^3.13.0",
     "i18next": "^25.2.0",
     "i18next-browser-languagedetector": "^8.1.0",
+    "lodash-es": "^4.17.21",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/canvas-confetti": "^1.9.0",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
