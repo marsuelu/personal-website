@@ -1,11 +1,11 @@
 import { createHashRouter, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
-const Welcome = lazy(() => import('../pages/welcome/index'));
-const Home = lazy(() => import('../pages/home/Index'));
-const Travel = lazy(() => import('../pages/travel/Index'));
-const Resume = lazy(() => import('../pages/resume/Index'));
-const Manicure = lazy(() => import('../pages/manicure/Index'));
+const Welcome = lazy(() => import('../pages/welcome/Index.tsx'));
+const Home = lazy(() => import('../pages/home/Index.tsx'));
+const Travel = lazy(() => import('../pages/travel/Index.tsx'));
+const Resume = lazy(() => import('../pages/resume/Index.tsx'));
+const Manicure = lazy(() => import('../pages/manicure/Index.tsx'));
 
 const router = createHashRouter([
   {
