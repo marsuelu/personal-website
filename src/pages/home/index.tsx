@@ -22,6 +22,7 @@ const Home: FC = () => {
   const { t } = useTranslation();
   const headerRef = useRef<HTMLDivElement>(null);
   const [currentTab, setCurrentTab] = useState(location.pathname.replace('/home/', '') || 'resume');
+  const headerShow = useRef(false);
 
   useGSAP(
     () => {
@@ -42,15 +43,24 @@ const Home: FC = () => {
           ease: 'power2.inOut',
         })
         .progress(1);
+      headerShow.current = true;
       ScrollTrigger.create({
         trigger: '#smooth-content',
         start: 'top top',
-        end: 'bottom bottom',
+        end: '100%',
         onUpdate: (self) => {
+          if (
+            (self.direction === -1 && headerShow.current) ||
+            (self.direction === 1 && !headerShow.current)
+          )
+            return;
+
           if (self.direction === -1 || self.scroll() < headerH) {
             headerAnimation.play();
+            headerShow.current = true;
           } else {
             headerAnimation.reverse();
+            headerShow.current = false;
           }
         },
       });
@@ -73,7 +83,7 @@ const Home: FC = () => {
                 {tabConfig.map((v, i) => (
                   <div
                     className={twMerge(
-                      `group relative max-w-xs cursor-pointer overflow-hidden px-4 text-xl/relaxed text-ellipsis text-gray-800 duration-300 [&.active>span]:text-fuchsia-600`,
+                      `group [&.active>span]:text-barbie relative max-w-xs cursor-pointer overflow-hidden px-4 text-xl/relaxed text-ellipsis text-gray-800 duration-300`,
                       i === tabConfig.findIndex((a) => a === currentTab) ? 'active' : ''
                     )}
                     onClick={() => {
@@ -85,7 +95,7 @@ const Home: FC = () => {
                     <DotIcon
                       size={20}
                       strokeWidth={8}
-                      className="absolute top-2 -left-1 hidden text-fuchsia-600 group-hover:inline-block"
+                      className="text-barbie absolute top-2 -left-1 hidden group-hover:inline-block"
                     />
                     <span>{t(v)}</span>
                   </div>
