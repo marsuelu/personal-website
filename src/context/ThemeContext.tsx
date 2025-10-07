@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useMemo } from 'react';
 import { useTheme } from '@/hooks/useTheme';
 
 const ThemeContext = createContext<{
@@ -8,10 +8,9 @@ const ThemeContext = createContext<{
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const { theme, setGlobalTheme } = useTheme();
+  const value = useMemo(() => ({ theme, setGlobalTheme }), [theme, setGlobalTheme]);
 
-  return (
-    <ThemeContext.Provider value={{ theme, setGlobalTheme }}>{children}</ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
 
 export { ThemeContext, ThemeProvider };

@@ -11,15 +11,21 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Dot as DotIcon } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+import { clsx } from 'clsx';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const tabConfig = ['resume', 'travel', 'manicure'];
 
+const cssLngTitleConfig: Record<string, string> = {
+  en: 'font-balonku',
+  zh: 'font-ZCOOL',
+};
+
 const Home: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const headerRef = useRef<HTMLDivElement>(null);
   const [currentTab, setCurrentTab] = useState(location.pathname.replace('/home/', '') || 'resume');
   const headerShow = useRef(false);
@@ -76,7 +82,18 @@ const Home: FC = () => {
       >
         <div className="container m-auto px-4 py-4">
           <div className="flex items-center justify-end sm:justify-between">
-            <h1 className="hidden text-2xl font-bold text-gray-800 sm:flex">WTF</h1>
+            <h1
+              className={clsx(
+                'hidden',
+                'text-2xl',
+                'font-bold',
+                'text-gray-800',
+                'sm:flex',
+                cssLngTitleConfig[i18n.language] || cssLngTitleConfig.en
+              )}
+            >
+              WTF
+            </h1>
             <Menu className="sm:hidden" />
             <div className="hidden items-center space-x-4 sm:flex">
               <div className="mr-10 flex justify-start gap-4">

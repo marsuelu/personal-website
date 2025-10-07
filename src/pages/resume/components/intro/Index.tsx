@@ -11,10 +11,16 @@ import {
   ChevronsLeftRightEllipsis as ChevronsLeftRightEllipsisIcon,
   Webcam as WebcamIcon,
 } from 'lucide-react';
+import { clsx } from 'clsx';
 
 gsap.registerPlugin([ScrollTrigger, SplitText]);
 
 const Intro: FC = () => {
+  const cssLngConfig: Record<string, string> = {
+    en: 'font-sour-gummy',
+    zh: 'font-ZCOOL',
+  };
+
   const { t, i18n } = useTranslation();
   const introRef = useRef<HTMLDivElement>(null);
 
@@ -78,7 +84,11 @@ const Intro: FC = () => {
   );
 
   return (
-    <div id="resume_intro" ref={introRef} className="bg-beige min-h-screen">
+    <div
+      id="resume_intro"
+      ref={introRef}
+      className={clsx('bg-beige', 'min-h-screen', cssLngConfig[i18n.language] || cssLngConfig.en)}
+    >
       {/* Hero Section */}
       <section className="text-split container mx-auto px-4 py-20 md:py-32">
         <div className="relative mb-16 text-center">

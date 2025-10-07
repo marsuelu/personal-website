@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('./normalize.css');
 @import 'tailwindcss';
 
@@ -16,9 +17,9 @@
 
 @theme {
   /* custom-font-family */
-  --font-rubik: 'Rubik Puddles';
   --font-balonku: 'balonku', 'arial', 'sans-serif', 'arial black', 'times new roman';
-  --font-ZCOOL: 'ZCOOL_KuaiLe', '微软雅黑', 'sans-serif';
+  --font-ZCOOL: 'ZCOOL KuaiLe', '微软雅黑', 'sans-serif';
+  --font-sour-gummy: 'Sour Gummy', 'arial', 'sans-serif';
   /* custom-color */
   --color-coral: #ff8559;
   --color-peach: #ffb578;
